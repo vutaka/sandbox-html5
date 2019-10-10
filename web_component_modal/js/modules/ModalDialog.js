@@ -35,7 +35,7 @@ export class ModalDialog extends HTMLElement {
     }
     .modal-dialog__window {
       position: absolute;
-      top: 20vh;
+      top: 10vh;
       left: 10vw;
       width: 80vw;
       min-height: 80vh;
