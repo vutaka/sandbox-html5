@@ -1,47 +1,71 @@
 export class ModalDialog extends HTMLElement {
   constructor() {
     super();
-    // 背景になった要素にフォーカスを当たらないようにする
-    document.querySelector("body").set;
 
     // Create a shadow root
     const shadowRoot = this.attachShadow({ mode: "open" });
+    const wrapper = this.createWrapper();
 
-    // Create layer
-    const overlay = document.createElement("span");
-    overlay.setAttribute("tabindex", "1");
-    overlay.setAttribute("class", "overlay");
+    shadowRoot.appendChild(wrapper);
 
+    // Attach the created elements to wrapper
+    wrapper.appendChild(this.createStyle());
+    wrapper.appendChild(this.createOverlay());
+    const windowTitle = this.getAttribute("title");
+    wrapper.insertAdjacentHTML(
+      "beforeend",
+      this.createWindowForTemplateString(windowTitle)
+    );
+  }
+
+  createWrapper() {
+    return document.createElement("div");
+  }
+
+  createStyle() {
     const style = document.createElement("style");
-    console.log(style.isConnected);
-
     style.textContent = `
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+    .modal-dialog__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(100, 100, 100, 0.8);
+    }
+    .modal-dialog__window {
+      position: absolute;
+      top: 20vh;
+      left: 10vw;
+      width: 80vw;
+      min-height: 80vh;
+      background-color: white;
+    }
+    .modal-dialog__window-title {
+
+    }
     `;
+    return style;
+  }
 
-    // Attach the created elements to the shadow dom
-    shadowRoot.appendChild(style);
-    console.log(style.isConnected);
-    shadowRoot.appendChild(overlay);
-
-    // オーバーレイのクリックでモーダルを閉じる
+  /**
+   * オーバーレイを作成する。
+   */
+  createOverlay() {
+    const overlay = document.createElement("div");
+    overlay.setAttribute("class", "modal-dialog__overlay");
+    // オーバーレイはラッパーに加えるのでウィンドウをクリックされても問題ない。
     overlay.addEventListener("click", () => {
       this.remove();
     });
+    return overlay;
+  }
 
-    // モーダル内でTabを循環させるたい。tabindex順の要素を取得するのが難しいのでモーダル以外フォーカス不可にするかも
-    // this.addEventListener("keydown", evt => {
-    //   if (evt.key === "Tab") {
-    //     evt.preventDefault();
-    //     evt.target.nextElementSibling.tabIndex
-    //   }
-    // });
+  createWindowForTemplateString(title) {
+    return `
+    <div class="modal-dialog__window">
+      <div class="modal-dialog__window-title">${title}</div>
+    </div>
+    `;
   }
 }
