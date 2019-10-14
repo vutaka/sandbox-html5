@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./main.js"></script>
+    <title>Slot and Template Element Example</title>
+  </head>
+  <body>
+    <!-- 部品のテンプレートを用意する。 -->
+    <template id="my-paragraph-block">
+      <style>
+        .my-paragraph-block {
+          background-color: lightgrey;
+          padding: 1em;
+          margin: 1em 0;
+        }
+        .my-paragraph-block__title {
+          background-color: grey;
+        }
+        .my-paragraph-block__paragraph {
+          background-color: white;
+        }
+      </style>
+      <div class="my-paragraph-block">
+        <div class="my-paragraph-block__title">
+          <span>タイトル：<slot name="title"></slot></span>
+        </div>
+        <div class="my-paragraph-block__paragraph">
+          <slot name="paragraph"></slot>
+        </div>
+      </div>
+    </template>
+    <!-- テンプレートを利用して部品を描画してみる。 -->
+    <my-paragraph-block>
+      <h2 slot="title">タイトルです！！</h2>
+      <p slot="paragraph">なんの役にも立たないパラグラフです！！！</p>
+    </my-paragraph-block>
+
+    <!-- slotの要素を変えてみる。 -->
+    <my-paragraph-block>
+      <span slot="title">タイトルです！！2</span>
+      <table slot="paragraph">
+        <thead>
+          <tr>
+            <th>材料名</th>
+            <th>値段</th>
+            <th>個数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>人参</td>
+            <td>1000yen</td>
+            <td>10本</td>
+          </tr>
+          <tr>
+            <td>玉ねぎ</td>
+            <td>100yen</td>
+            <td>10個</td>
+          </tr>
+        </tbody>
+      </table>
+    </my-paragraph-block>
+  </body>
+</html>
