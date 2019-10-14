@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>web component Example</title>
     <script src="./js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section>
-      <p>フォーカスできない要素</p>
-      <input placeholder="ダイアログがあれば入力されたくない1" />
-    </section>
-    <button
-      onclick="document.body.insertAdjacentHTML('beforeend', `<modal-dialog title='ゴミ' />`)"
-    >
-      ひらけごま太郎
-    </button>
-    <p>フォーカスできない要素２</p>
-    <input placeholder="ダイアログがあれば入力されたくない2" />
+    <div class="content">
+      <section>
+        <p>フォーカスできない要素</p>
+        <input placeholder="ダイアログがあれば入力されたくない1" />
+      </section>
+      <button
+        onclick="document.body.insertAdjacentHTML('beforeend', `<modal-dialog title='ゴミ' />`)"
+      >
+        ひらけごま太郎
+      </button>
+      <p>フォーカスできない要素２</p>
+      <input placeholder="ダイアログがあれば入力されたくない2" />
+    </div>
   </body>
 </html>
