@@ -14,6 +14,11 @@
         <p>フォーカスできない要素</p>
         <input placeholder="ダイアログがあれば入力されたくない1" />
       </section>
+      <add-element-button label="オープン">
+        <modal-dialog slot="target" title="オープン">
+          ここにページの内容
+        </modal-dialog>
+      </add-element-button>
       <button
         onclick="document.body.insertAdjacentHTML('beforeend', `<modal-dialog title='ゴミ' />`)"
       >
