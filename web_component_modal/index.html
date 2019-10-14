@@ -16,9 +16,10 @@
       </section>
       <add-element-button label="オープン">
         <modal-dialog slot="target" title="オープン">
-          ここにページの内容
+          <div>これが我々のページ内容でござる！</div>
         </modal-dialog>
       </add-element-button>
+      <!-- onclickを直接書いてみた -->
       <button
         onclick="document.body.insertAdjacentHTML('beforeend', `<modal-dialog title='ゴミ' />`)"
       >

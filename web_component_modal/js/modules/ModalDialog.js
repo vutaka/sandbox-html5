@@ -82,9 +82,7 @@ export class ModalDialog extends HTMLElement {
       <div class="modal-dialog__window">
         <div class="modal-dialog__window-title" tabindex="0">${title}</div>
         <div class="modal-dailog__content">
-          <slot name="content">
-            空っぽやねん
-          </slot>
+          ${this.innerHTML}
         </div>
       </div>
     `;
