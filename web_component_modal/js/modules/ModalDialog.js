@@ -19,7 +19,16 @@ export class ModalDialog extends HTMLElement {
   }
 
   createWrapper() {
-    return document.createElement("div");
+    const wrapper = document.createElement("div");
+    // エスケープ絶対殺すマン
+    wrapper.addEventListener(
+      "keydown",
+      event => {
+        if (event.key == "Escape") this.close();
+      },
+      true
+    );
+    return wrapper;
   }
 
   createStyle() {
@@ -40,8 +49,13 @@ export class ModalDialog extends HTMLElement {
       width: 80vw;
       min-height: 80vh;
       background-color: white;
+      display: flex;
+      flex-direction: column;
     }
     .modal-dialog__window-title {
+
+    }
+    .modal-dialog__content {
 
     }
     `;
@@ -55,17 +69,31 @@ export class ModalDialog extends HTMLElement {
     const overlay = document.createElement("div");
     overlay.setAttribute("class", "modal-dialog__overlay");
     // オーバーレイはラッパーに加えるのでウィンドウをクリックされても問題ない。
-    overlay.addEventListener("click", () => {
-      this.remove();
-    });
+    overlay.addEventListener("click", () => this.close());
     return overlay;
   }
 
+  /**
+   * いっそTemplateStringでモーダルを作ってみる。
+   * @param {String} title モーダルダイアログ本体に表示するタイトル
+   */
   createWindowForTemplateString(title) {
     return `
-    <div class="modal-dialog__window">
-      <div class="modal-dialog__window-title">${title}</div>
-    </div>
+      <div class="modal-dialog__window">
+        <div class="modal-dialog__window-title" tabindex="0">${title}</div>
+        <div class="modal-dailog__content">
+          <slot name="content">
+            空っぽやねん
+          </slot>
+        </div>
+      </div>
     `;
+  }
+
+  /**
+   * さよなら
+   */
+  close() {
+    this.remove();
   }
 }
