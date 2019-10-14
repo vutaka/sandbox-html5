@@ -16,15 +16,22 @@
   * [x] コンテンツはタイトルの下に、いい感じに表示（埋め込める）
   * [ ] 閉じるボタンは右上に表示。押すとレイヤーを押したのと同様の動き
   * [ ] Tabキーを押すとモーダルウィンドウ内で循環する
+  * [x] モーダルのどこかにフォーカスがある時にESCを押すとクローズする
+* [ ] モーダルウィンドウのタイトルをドラッグして画面上の好きな位置に配置できる。
 
 ## 感想とか
 
 ### Good
 
 * テンプレートエンジンがなくても使えるTemplate Stringが変数まで扱えて良い
+* slotを勝手にアタッチしてくれる
 
 ### Bad
 
-* HTML Importsが2019/10/10時点で草案になってるファイルを分けられない
-* JSにCSSを書いたり、HTML断片を書くことになるのでシンタックスハイライトとか予測変換ができない
-* ShadowRootにappendChildできてもinsertAdjacentHTMLできない。Elementじゃない
+* HTML Importsが2019/10/10時点で草案になってる。コンポーネントのテンプレートとかどこに書くのが良いかよくわからん
+  * JSにCSSを書いたり、HTML断片を書くことになるのでシンタックスハイライトとか予測変換ができない
+* ShadowRootにappendChildできてもinsertAdjacentHTMLできない。elementじゃない
+* TemplateStringを使った時の問題
+  * イベント追加が若干面倒、onclickにイベント追加しようにもclassへ参照できないためaddEventListenerを使うことになるがいちいちselectorが必要になる
+  * elementにするにはinsertAdjacentHTMLを使うかinnerHTMLに書き出すしかなさそう。
+* 動的な何かに期待するなら素直にReactなりVueを使うのがまだまだ良さそう。
