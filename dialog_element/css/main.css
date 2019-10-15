@@ -1,0 +1,4 @@
+/* モーダルの時に出てくるやつ */
+#first-dialog::backdrop {
+  background-color: red;
+}
