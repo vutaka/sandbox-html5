@@ -12,15 +12,19 @@
     }
     
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+  <script src="js/main.js"></script>
 </head>
 <body>
   <div>
     <div>capture</div>
-    <div><input type="file" accept="image/*" capture="capture"></div>
+    <div><input type="file" accept="image/*" capture="capture" id="capture_file"></div>
+    <div id="capture_info"></div>
   </div>
   <div>
     <div>not capture(accept heic)</div>
-    <div><input type="file" accept="image/*,.heic"></div>
+    <div><input type="file" accept="image/*,.heic" id="upload_file"></div>
+    <div id="upload_info"></div>
   </div>
 </body>
 </html>
