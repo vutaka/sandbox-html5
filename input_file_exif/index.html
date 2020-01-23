@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>input fileでExif情報を取得してみる</title>
+  <style>
+    body {
+      display: flex;
+    }
+    
+  </style>
+</head>
+<body>
+  <div>
+    <div>capture</div>
+    <div><input type="file" accept="image/*" capture="capture"></div>
+  </div>
+  <div>
+    <div>not capture(accept heic)</div>
+    <div><input type="file" accept="image/*,.heic" capture="capture"></div>
+  </div>
+</body>
+</html>
