@@ -12,16 +12,20 @@
       flex-direction: column;
     }
   </style>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
   <div>
     <div>テーブルに行を追加する</div>
-    <div>テーブルに行を追加するとリフローとリペイントが同時に発生する。</div>
+    <div>テーブルに行を追加するときの性能見てみる。性能自体はブラウザのパフォーマンス使うよろし</div>
+    <div>
+      <button id="each_time">都度追加する</button>
+      <button id="each_time_on_animation_frame">都度追加する(on animation)</button>
+      <button id="at_once">一気に追加する</button>
+      <button id="remove_all">行削除</button>
+    </div>
     <table id="table"></table>
-    <button id="each_time">都度追加する</button>
-    <button id="at_once">一気に追加する</button>
   </div>
 </body>
 
