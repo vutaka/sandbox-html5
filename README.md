@@ -6,4 +6,4 @@
 | [web_component_modal](https://vutaka.github.io/sandbox-html5/web_component_modal/)                         | web componentでダイアログを実装してみた                                        |                                 |
 | [web_component_slot_and_template](https://vutaka.github.io/sandbox-html5/web_component_slot_and_template/) | web componentのslotとtemplateを使ってみた                                      |                                 |
 | [input_file_exif](https://vutaka.github.io/sandbox-html5/input_file_exif)                                  | input fileで選択した画像からEXIFを取得できるか試してみる                       |                                 |
-| [add_element]](https://vutaka.github.io/sandbox-html5/add_element)                                         | テーブルに一括で行を追加するのと、一行ずつ追加するのとどのような差があるか確認 |                                 |
+| [add_element](https://vutaka.github.io/sandbox-html5/add_element)                                         | テーブルに一括で行を追加するのと、一行ずつ追加するのとどのような差があるか確認 |                                 |
