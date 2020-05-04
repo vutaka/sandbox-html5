@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScriptでtableのborderをいじる</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    table {
+      border: solid 1px black;
+      border-collapse: collapse;
+    }
+
+    .border_on td {
+      border-bottom: solid 1px black;
+      border-right: solid 1px black;
+    }
+  </style>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <div>
+    <div>テーブル内の要素にscriptで順次borderを追加してみる</div>
+    <div>
+      <button id="add_style">一個一個丹精込めて</button>
+      <button id="add_style_animationframe">一個一個丹精込めてanimationframeで</button>
+      <button id="add_class">cssで一気に</button>
+      <button id="init">元に戻す</button>
+    </div>
+    <table id="table"></table>
+  </div>
+</body>
+
+</html>
