@@ -8,7 +8,8 @@ function createRow(index) {
  */
 function addStyle(table) {
   const tds = table.querySelectorAll('td');
-  for (let td of tds) {
+  for (let i = 0; i < tds.length; i++) {
+    let td = tds[i];
     td.style.borderRight = 'solid 1px black';
     td.style.borderBottom = 'solid 1px black';
   }
