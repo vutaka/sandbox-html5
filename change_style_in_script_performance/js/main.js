@@ -42,7 +42,7 @@ function init(table) {
   table.innerHTML = '';
   table.setAttribute('class', '');
   let rowStr = '';
-  for (let index = 0; index < 50000; index++) {
+  for (let index = 0; index < 5000; index++) {
     rowStr += createRow(index);
   }
   table.insertAdjacentHTML('beforeend', rowStr);
